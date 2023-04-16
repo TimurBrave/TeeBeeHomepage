@@ -1,0 +1,113 @@
+
+:root { /* colors */
+  --body-color: rgb(45, 45, 45);
+  --button-color: rgb(70, 70, 70);
+  --button-hover-color: rgb(100, 100, 100);
+  --button-shadow-color: rgba(0, 0, 0, 0.1);
+  --button-shadow-color-hover: rgba(0, 0, 0, 0.3);
+  --search-box-color: rgb(70, 70, 70);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--body-color);
+  margin: 0;
+}
+
+.center-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  height: 100vh;
+  width: 15rem;
+  justify-content: center;
+  align-content: center;  
+}
+
+.search-wrp {
+  grid-template-rows: 2rem;
+  gap: .2rem;
+}
+
+.s-bar {
+  display: grid;
+  grid-template-columns: 2.2rem auto 1rem;
+  height: 2rem;
+  margin: .5rem 0;
+  background-color: var(--search-box-color);
+  border-radius: 1.5rem;
+}
+
+.search-icon {
+  height: 1.2rem;
+  width: 1.2rem;
+  margin: auto;
+}
+
+.search-box {
+  height: auto;
+  border: none;
+  outline: none;
+  color: antiquewhite;
+  background-color: var(--search-box-color);  
+}
+
+.bookmarks {
+  height: auto;
+  width: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: .5rem;
+}
+
+.button {
+  margin: 0;
+  border-radius: .3rem;
+  height: 2rem;
+  background-color: var(--button-color);
+  box-shadow: 0 .2rem .2rem var(--button-shadow-color);
+  border: none;
+}
+
+.button:hover {
+  background-color: var(--button-hover-color);
+  box-shadow: 0 .2rem .2rem var(--button-shadow-color-hover);
+}
+
+/* Test todo list */
+#app {
+  display: grid;
+  grid-template-columns: auto 2rem;
+  grid-template-rows: 2.5rem;
+  grid-gap: .5rem;
+  margin: 2rem 0 2rem;
+}
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li button {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  margin-left: 5px;
+  cursor: pointer;
+}
