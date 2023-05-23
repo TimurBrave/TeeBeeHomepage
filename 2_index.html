@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="2_styles.css">
+    <link rel="stylesheet" href="clocks.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+<body>
+    <div class="main">
+        <div id="header">
+            <!-- Clocks -->
+            <div id="clock">
+                <div id="hoursMinutes">
+                    <span id="hours" class="clock-digits"></span>
+                    <span id="colon" class="clock-digits">:</span>
+                    <span id="minutes" class="clock-digits"></span>
+                </div>
+                <div id="amPm"></div>
+                <div id="date">
+                    <span id="month"></span>
+                    <span id="day"></span>
+                    <div id="dayOfWeek"></div>                    
+                </div>
+                <button id="toggleFormat"></button>
+            </div>
+        </div>
+        <!-- Searches and Bookmarks -->
+        <div id="bm-search">
+            <!-- Search -->
+            <div id="search">
+                <div id="google-search">
+                    <!-- Google search bar -->
+                    <form class="search-bar" method="get" action="https://www.google.com/search">
+                        <img class="search-icon" src="icons/google-color.svg" alt="Google">
+                        <input class="search-box" type="text" name="q" placeholder="Search Google">
+                    </form>                    
+                </div>
+                <div id="mdn-search">
+                    <!-- MDN search bar -->
+                    <form class="search-bar" method="get" action="https://developer.mozilla.org/search">
+                        <img class="search-icon" src="icons/mdn-logo.svg" alt="Google">
+                        <input class="search-box" type="text" id="q" name="q" autocomplete="off" placeholder="Search MDN">
+                    </form>                    
+                </div>
+            </div>
+            <!-- Bookmarks -->
+            <span id="bm-sign">bookmarks</span>
+            <div id="bookmarks">
+                <a class="bookmark-button burning-button" href="https://www.w3docs.com/">
+                    <div class="bookmark-name">
+                        w3docs - Learn to design and build professional website
+                    </div>
+                </a>
+                <a class="bookmark-button burning-button" href="https://www.phind.com/">
+                    <div class="bookmark-name">
+                        Phind: AI search engine
+                    </div>
+                </a>
+                <button class="bookmark-button burning-button"></button>
+                <button class="bookmark-button burning-button"></button>
+                <button class="bookmark-button burning-button"></button>
+                <button class="bookmark-button burning-button"></button> 
+        
+            </div>
+        </div>
+        <!-- To-do list -->
+        <div id="todoList">
+            <div id="myDIV" class="header">
+                <h2>To Do</h2>
+                <div id="inputLine">
+                    <input type="text" id="myInput" placeholder="Title...">
+                    <button id="addBtn"></button>
+                </div>
+            </div>
+            <div class="list">
+                <ul id="myUL">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="2_javascript.js"></script>
+    <script src="clocks.js"></script>
+</body>
+</html>

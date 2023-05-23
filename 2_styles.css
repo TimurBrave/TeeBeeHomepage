@@ -1,0 +1,377 @@
+body {
+    margin: 0;
+}
+
+:root {
+    /* Colors */
+    --page-bg-color: #222222;
+    --section: #333333;
+    --bm-search-bg-color: burlywood;
+    --search-bar-bg-color: #333333;
+    --button-color: #333333;
+    --button-shadow-color: rgba(0, 0, 0, 0.1); 
+    --button-hover-color: rgb(70, 70, 70);
+    --button-hover-shadow-color: rgba(0, 0, 0, 0.2);
+
+    /* Main */
+    --main-content-width: max(35vw);
+
+    /* Clocks */
+    --parentHeight: 7vw;
+    --clocks: calc(var(--parentHeight) / 70);
+    --amPm: calc(var(--parentHeight) / 10);
+    --day: calc(var(--parentHeight) / 20);
+    --clocksColor: #333333;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    display: grid; 
+    grid-template-columns: 0.5fr var(--main-content-width) 0.5fr; 
+    grid-template-rows: 0.5fr auto 1fr; 
+    gap: 0.5em .5em; 
+    grid-template-areas: 
+      ". header ."
+      ". bm-search ."
+      ". todoList .";
+
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    background: var(--page-bg-color);
+}
+
+#header {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+
+    margin-top: 2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+
+
+    grid-area: header;
+    /* background-color: var(--section); */
+}
+
+#header::before {
+    content: "";
+    background: url("https://images.unsplash.com/photo-1600647993560-11a92e039466?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80") no-repeat center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.7;
+}
+
+/* Clocks */
+#clock {
+    display: grid;
+    position: relative;
+    grid-template-columns: .5fr 1fr 1fr .5fr;
+    grid-template-rows: 6.4vw 2vw;
+    grid-template-areas:
+    ". hm hm amPm"
+    ". date date amPmAndSwitch";
+}
+
+.clock-digits {
+    display: inline-block;
+    font-size: 6vw;
+}
+
+#hoursMinutes {
+    grid-area: hm;
+    align-self: center;
+    font-weight: 500;
+    color: var(--clocksColor);
+}
+
+#amPm {
+    grid-area: amPm;
+    font-size: 2vw;
+    color: var(--clocksColor);
+}
+
+#toggleFormat {
+    grid-area: amPmAndSwitch;
+    display: flex;
+    position: relative;
+    left: -.8vw;
+    width: 1.5vw;
+    height: 1.5vw;
+    border-radius: 1vw;
+    border: none;
+    background-color: #333333;
+    align-self: center;
+    justify-self: center;
+}
+
+#date {
+    grid-area: date;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-self: center;
+    font-size: 2vw;
+    height: 2.5vw;
+    color: #333333;
+ 
+    padding: .2vw;
+    /* background: linear-gradient(to right, gray, white, white, gray); */
+    border-radius: 2rem;
+    
+    box-shadow: inset 0 0 .5rem rgba(0, 0, 0, 0.5);
+}
+
+#bm-search {
+    display: grid;
+    position: relative;
+
+    grid-template-columns: var(--main-content-width);
+    grid-template-rows: auto 1fr;
+    grid-area: bm-search;
+    gap: .5rem;
+    /* background-color: var(--bm-search-bg-color); */
+}
+
+#search {
+    display: grid;
+    grid-template-columns: var(--main-content-width);
+    grid-template-rows: 2rem 2rem;
+    gap: .5rem;
+}
+
+.search-bar {
+    display: grid;
+    grid-template-columns: 2rem auto 1rem;
+    grid-template-rows: 2rem;
+    border-radius: 1rem;
+    background-color: var(--search-bar-bg-color);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}  
+
+.search-icon {
+    height: 1rem;
+    width: 1rem;
+    margin: auto;
+}
+
+.search-box {
+    background-color: rgba(0, 0, 255, 0);
+    border: none;
+    color: blanchedalmond;
+    outline: none;
+}
+
+#bookmarks {
+    display: grid;
+    grid-gap: .3rem;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+#bm-sign {
+    display: flex;
+    position: absolute;
+    font-size: .7rem;
+    color: #333333;
+    left: -2.5rem;
+    top: 6.7rem;
+    rotate: 270deg;
+}
+
+.bookmark-button {
+    display: grid;
+    grid-template-columns: auto;
+    grid-row: 1fr;
+    padding: 0 .5rem 0;
+
+    height: 2rem;
+    align-content: center;
+
+    color: antiquewhite;
+    font-weight: 300;
+    font-size: smaller;
+    text-decoration: none;
+    
+
+    border-radius: .6rem;
+    border: none;
+    background-color: var(--button-color);
+    box-shadow: 0 .2rem .2rem var(--button-shadow-color);
+}
+
+.bm-icon {
+    align-self: center;
+    height: 1rem;
+}
+
+.bookmark-name {
+    text-align: left;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.burning-button {
+    background-color: var(--button-color);
+    transition-duration: 0.4s;
+    position: relative;
+}
+
+/* .bookmark-button:hover {
+    background-color: var(--button-hover-color);
+    box-shadow: 0 .2rem .2rem var(--button-hover-shadow-color);
+} */
+
+    /* Bookmark's button color animation */
+    @keyframes greyAnimation {
+        0% {
+        background-color: var(--button-hover-color);
+        }
+        100% {
+        background-color: var(--button-hover-color);
+        }
+    }
+
+    @keyframes redAnimation {
+        0% {
+        background-color: var(--button-hover-color);
+        }
+        100% {
+        background-color: #670202;
+        }
+    }
+        
+    @keyframes orangeAnimation {
+        0% {
+        background-color: #670202;
+        }
+        100% {
+        background-color: #c35d02;
+        }
+    }
+
+    @keyframes skyBlueAnimation {
+        0% {
+        background-color: #c35d02;
+        }
+        100% {
+        background-color: #ffffff;
+        }
+    }
+
+.bm-icon {
+    grid-column-start: ;
+}
+
+/* Media query for round corner of bookmark's buttons */
+    @media (min-width: 576px) {
+        #bookmarks {
+          grid-template-columns: repeat(1, auto);
+        }
+      }
+      
+    @media (min-width: 768px) {
+        #bookmarks {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      
+    @media (min-width: 992px) {
+        #bookmarks {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    
+    /* To-do list styles */
+#todoList {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 6rem 1fr;
+    grid-area: todoList;
+    background-color: var(--section);
+    border-radius: 1rem;
+    
+    margin-bottom: 2rem;
+
+    justify-items: center;
+}
+
+#todoList > .header {
+    text-align: center;
+    color: #222222;
+}
+
+#inputLine {
+    display: grid;
+    grid-template-columns: auto 2rem;
+    /* grid-row: 2rem; */
+}
+
+#myInput {
+    border-radius: 1rem;
+    height: 2rem;
+    background-color: #aaaaaa;
+    border: none;
+    outline: none;
+    padding: 0 .8rem;
+    margin-left: 2rem;
+}
+
+input[type="text"] {
+    width: 12rem;
+    transition: width 0.2s;
+}
+
+input[type="text"]:focus {
+    width: 28vw;
+}
+
+#addBtn {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: #222222;
+    justify-self: center;
+    align-self: center;
+}
+
+.checked {
+    text-decoration: line-through;
+    color: gray;
+  }
+
+  .bullet {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+
+  .blue {
+    background-color: blue;
+  }
+
+  .orange {
+    background-color: orange;
+  }
+
+  .dark-red {
+    background-color: darkred;
